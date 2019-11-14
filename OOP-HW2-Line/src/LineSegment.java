@@ -32,9 +32,9 @@ public interface LineSegment {
 	public void updateCenter(Point center);
 
 	/**
-	 * @return the inclination angle
+	 * @return the inclination angle. The angle, should be between 0 to PI (less than PI).
 	 */
-	double getAngle();
+	public double getAngle();
 
 	/**
 	 * @param angle
