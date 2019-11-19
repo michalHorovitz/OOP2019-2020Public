@@ -11,6 +11,8 @@ import org.junit.Test;
  */
 public class TestHW2 {
 
+	private static double PRECISION = 1.0e-5;
+
 	LineSegment lineClass1No1; // center(0,0),length=1,angle=0
 	LineSegment lineClass2No1; // p1(-1,0), p2(1,0)
 
@@ -83,20 +85,20 @@ public class TestHW2 {
 
 	@Test
 	public void testGetLength() {
-		assertTrue(lineClass1No1.getLength() == 1);
-		assertTrue(lineClass2No1.getLength() == 1);
+		assertTrue(areEqual(lineClass1No1.getLength(), 1));
+		assertTrue(areEqual(lineClass2No1.getLength(), 1));
 
-		assertTrue(lineClass1No2.getLength() == 5);
-		assertTrue(lineClass2No2.getLength() == 5);
+		assertTrue(areEqual(lineClass1No2.getLength(), 5));
+		assertTrue(areEqual(lineClass2No2.getLength(), 5));
 
-		assertTrue(lineClass1No3.getLength() == 5);
-		assertTrue(lineClass2No3.getLength() == 5);
+		assertTrue(areEqual(lineClass1No3.getLength(), 5));
+		assertTrue(areEqual(lineClass2No3.getLength(), 5));
 
 		Point p = new Point();
 		LineSegment l1 = new LineSegment1(p, p);
 		LineSegment l2 = new LineSegment1(p, p);
-		assertTrue(l1.getLength() == 0);
-		assertTrue(l2.getLength() == 0);
+		assertTrue(areEqual(l1.getLength(), 0));
+		assertTrue(areEqual(l2.getLength(), 0));
 
 	}
 
@@ -104,16 +106,16 @@ public class TestHW2 {
 	public void testUpdateLength() {
 		lineClass1No1.updateLength(10);
 		lineClass2No1.updateLength(10);
-		
-		assertTrue(lineClass1No1.getLength() == 10);
-		assertTrue(lineClass2No1.getLength() == 10);
-		
-		assertEquals(lineClass1No1.getCenter(),new Point());
-		assertEquals(lineClass2No1.getCenter(),new Point());
-		
-		assertTrue(lineClass1No1.getAngle()==0);
-		assertTrue(lineClass2No1.getAngle()==0);
-	
+
+		assertTrue(areEqual(lineClass1No1.getLength(), 10));
+		assertTrue(areEqual(lineClass2No1.getLength(), 10));
+
+		assertEquals(lineClass1No1.getCenter(), new Point());
+		assertEquals(lineClass2No1.getCenter(), new Point());
+
+		assertTrue(areEqual(lineClass1No1.getAngle(), 0));
+		assertTrue(areEqual(lineClass2No1.getAngle(), 0));
+
 	}
 
 	@Test
@@ -135,33 +137,32 @@ public class TestHW2 {
 
 	@Test
 	public void testUpdateCenter() {
-		
-		Point center = new Point(10,10);
-		
+
+		Point center = new Point(10, 10);
+
 		lineClass1No1.updateCenter(center);
 		lineClass2No1.updateCenter(center);
 
-		assertFalse(lineClass1No1.getCenter()==center);
-		assertFalse(lineClass2No1.getCenter()==center);
-		
-		assertEquals(lineClass1No1.getCenter(),center);
-		assertEquals(lineClass2No1.getCenter(),center);
-		
-		
+		assertFalse(lineClass1No1.getCenter() == center);
+		assertFalse(lineClass2No1.getCenter() == center);
+
+		assertEquals(lineClass1No1.getCenter(), center);
+		assertEquals(lineClass2No1.getCenter(), center);
+
 		center.moveHorizontal(5);
-		assertNotEquals(lineClass1No1.getCenter(),center);
-		assertNotEquals(lineClass2No1.getCenter(),center);
-		
+		assertNotEquals(lineClass1No1.getCenter(), center);
+		assertNotEquals(lineClass2No1.getCenter(), center);
+
 	}
 
 	@Test
 	public void testGetAngle() {
 		LineSegment lineClass1No1_2 = new LineSegment1(new Point(), 1, Math.PI * 2);
-		assertTrue(lineClass1No1_2.getAngle() == 0);
+		assertTrue(areEqual(lineClass1No1_2.getAngle(), 0));
 		assertTrue(lineClass1No1_2.isEqual(lineClass1No1));
 
 		LineSegment lineClass2No1_2 = new LineSegment1(new Point(), 1, Math.PI * 2);
-		assertTrue(lineClass2No1_2.getAngle() == 0);
+		assertTrue(areEqual(lineClass2No1_2.getAngle(), 0));
 		assertTrue(lineClass2No1_2.isEqual(lineClass2No1));
 	}
 
@@ -181,23 +182,23 @@ public class TestHW2 {
 		assertTrue(lineClass2No1.isEqual(lineClass1No1));
 		lineClass2No1.rotate(0);
 		assertTrue(lineClass2No1.isEqual(lineClass1No1));
-		lineClass1No1.rotate(Math.PI/2);
+		lineClass1No1.rotate(Math.PI / 2);
 	}
 
 	@Test
 	public void testGetOrthogonalLine() {
-		LineSegment lineClass1No1Copy =lineClass1No1.copy();
+		LineSegment lineClass1No1Copy = lineClass1No1.copy();
 		LineSegment lineClass1No1Or = lineClass1No1.getOrthogonalLine();
-		assertTrue(Math.abs(lineClass1No1Or.getAngle()-lineClass1No1.getAngle())==Math.PI/2);
+		assertTrue(areEqual(Math.abs(lineClass1No1Or.getAngle() - lineClass1No1.getAngle()), Math.PI / 2));
 		assertTrue(lineClass1No1Copy.isEqual(lineClass1No1));
-		assertEquals(lineClass1No1.getCenter(),lineClass1No1Copy.getCenter());
-		
-		LineSegment lineClass2No1Copy =lineClass2No1.copy();
-		LineSegment lineClass2No1Or = lineClass2No1.getOrthogonalLine();	
-		assertTrue(Math.abs(lineClass2No1Or.getAngle()-lineClass2No1.getAngle())==Math.PI/2);
+		assertEquals(lineClass1No1.getCenter(), lineClass1No1Copy.getCenter());
+
+		LineSegment lineClass2No1Copy = lineClass2No1.copy();
+		LineSegment lineClass2No1Or = lineClass2No1.getOrthogonalLine();
+		assertTrue(areEqual(Math.abs(lineClass2No1Or.getAngle() - lineClass2No1.getAngle()), Math.PI / 2));
 		assertTrue(lineClass2No1Copy.isEqual(lineClass2No1));
-		assertEquals(lineClass2No1.getCenter(),lineClass2No1Copy.getCenter());
-		
+		assertEquals(lineClass2No1.getCenter(), lineClass2No1Copy.getCenter());
+
 	}
 
 	@Test
@@ -220,33 +221,31 @@ public class TestHW2 {
 		assertTrue(lineClass1No1.isEqual(lineClass2No1));
 		assertEquals(lineClass1No1.getCenter(), lineClass2No1.getCenter());
 		assertEquals(lineClass1No1.getCenter(), new Point(10, 5));
-		assertTrue(lineClass1No1.getLength() == 1);
-		assertTrue(lineClass2No1.getLength() == 1);
-		assertTrue(lineClass1No1.getAngle() == 0);
-		assertTrue(lineClass2No1.getAngle() == 0);
+		assertTrue(areEqual(lineClass1No1.getLength(), 1));
+		assertTrue(areEqual(lineClass2No1.getLength(), 1));
+		assertTrue(areEqual(lineClass1No1.getAngle(), 0));
+		assertTrue(areEqual(lineClass2No1.getAngle(), 0));
 	}
-
 
 	@Test
 	public void testScale() {
 		lineClass1No1.scale(1);
 		lineClass2No1.scale(1);
-		assertTrue(lineClass1No1.getLength()==1);
-		assertTrue(lineClass2No1.getLength()==1);
-		assertEquals(lineClass1No1.getCenter(),new Point(0,0));
-		assertEquals(lineClass2No1.getCenter(),new Point(0,0));
-	
-		
+		assertTrue(areEqual(lineClass1No1.getLength(), 1));
+		assertTrue(areEqual(lineClass2No1.getLength(), 1));
+		assertEquals(lineClass1No1.getCenter(), new Point(0, 0));
+		assertEquals(lineClass2No1.getCenter(), new Point(0, 0));
+
 		lineClass1No1.scale(2);
 		lineClass2No1.scale(2);
-		assertTrue(lineClass1No1.getLength()==2);
-		assertTrue(lineClass2No1.getLength()==2);
-		
+		assertTrue(areEqual(lineClass1No1.getLength(), 2));
+		assertTrue(areEqual(lineClass2No1.getLength(), 2));
+
 		lineClass1No1.scale(0);
 		lineClass2No1.scale(0);
-		assertTrue(lineClass1No1.getLength()==0);
-		assertTrue(lineClass2No1.getLength()==0);
-		assertEquals(lineClass2No1.getEndPoints()[0],new Point(0,0));
+		assertTrue(areEqual(lineClass1No1.getLength(), 0));
+		assertTrue(areEqual(lineClass2No1.getLength(), 0));
+		assertEquals(lineClass2No1.getEndPoints()[0], new Point(0, 0));
 	}
 
 	@Test
@@ -254,7 +253,7 @@ public class TestHW2 {
 		assertTrue(lineClass1No1.isEqual(lineClass2No1));
 		assertTrue(lineClass1No3.isEqual(lineClass2No3));
 		assertTrue(lineClass1No2.isEqual(lineClass2No2));
-		
+
 		assertFalse(lineClass1No3.isEqual(lineClass2No2));
 		assertFalse(lineClass2No1.isEqual(lineClass1No3));
 
@@ -264,6 +263,10 @@ public class TestHW2 {
 		assertFalse(lineClass1No1.isEqual(null));
 		assertFalse(lineClass1No2.isEqual(null));
 
+	}
+
+	private boolean areEqual(double d1, double d2) {
+		return Math.abs(d1 - d2) < PRECISION;
 	}
 
 }
