@@ -15,8 +15,8 @@ public interface LineSegment {
 	/**
 	 * @param length
 	 *            Update the length to be the equal to the argument. The center
-	 *            point and the inclination angle should not be changed
-	 *            if length is negative, nothing is done.
+	 *            point and the inclination angle should not be changed if length is
+	 *            negative, nothing is done.
 	 */
 	public void updateLength(double length);
 
@@ -33,7 +33,8 @@ public interface LineSegment {
 	public void updateCenter(Point center);
 
 	/**
-	 * @return the inclination angle. The angle should be between 0 to PI (less than PI).
+	 * @return the inclination angle. The angle should be between 0 to PI (less than
+	 *         PI).
 	 */
 	public double getAngle();
 
@@ -102,8 +103,7 @@ public interface LineSegment {
 	 * @param scalingParam
 	 *            Stretch/shrink the length by scalingParam (multiply the length
 	 *            with scalingParam). The center point and the angle should not be
-	 *            changed.
-	 *            if scalingParamis is negative, nothing is done.
+	 *            changed. if scalingParamis is negative, nothing is done.
 	 */
 	public void scale(double scalingParam);
 
