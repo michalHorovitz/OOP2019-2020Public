@@ -27,8 +27,9 @@ public interface LineSegment {
 
 	/**
 	 * @param center
-	 *            Update the center point to be a copy of the argument. The length
-	 *            and the inclination angle should not be changed
+	 *            Update the center point. The length and the inclination angle
+	 *            should not be changed.
+	 * 
 	 */
 	public void updateCenter(Point center);
 
@@ -54,9 +55,7 @@ public interface LineSegment {
 	/**
 	 * @param edge1
 	 * @param edge2
-	 * 
-	 *            Update the center point to be a copy of the argument. The length
-	 *            and the inclination angle should not be changed
+	 *            Update the end points.
 	 * 
 	 */
 	public void updateEndPoints(Point end1, Point end2);
