@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,6 +9,7 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+
 
 /**
  * @author Michal Hotovitz
@@ -26,7 +28,7 @@ public class TestPolygonPartA {
 	Polygon polyTest1, polyTest2, polyTest3, polyTest4;
 
 	@Before
-	public void setUp() {
+	public void setUp()  {
 		p1 = new Point(-1, -1);
 		p2 = new Point(-1, 1);
 		p3 = new Point(1, 1);
@@ -37,8 +39,14 @@ public class TestPolygonPartA {
 		vertices.add(p3);
 		vertices.add(p4);
 		polygonStr = "-1,-1,-1,1,1,1,1,-1";
+		try {
 		polyTest3 = new Polygon(vertices);
 		polyTest4 = new Polygon(polygonStr);
+		}
+		catch(Exception e)
+		{
+			fail("An exception in Polygon constructor");
+		}
 	}
 
 	@Test
@@ -72,6 +80,7 @@ public class TestPolygonPartA {
 		assertEquals(polyTest3.toString(),
 				"The Polygon points are ( Point [x=-1.0, y=-1.0] Point [x=-1.0, y=1.0] Point [x=1.0, y=1.0] Point [x=1.0, y=-1.0] )");
 	}
+
 
 	private boolean areEqual(double d1, double d2) {
 		return Math.abs(d1 - d2) < PRECISION;
