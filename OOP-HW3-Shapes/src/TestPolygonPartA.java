@@ -8,9 +8,6 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.xml.sax.HandlerBase;
-
-import exceptionsTypes.HW3Exception;
 
 /**
  * @author Michal Hotovitz
@@ -29,7 +26,7 @@ public class TestPolygonPartA {
 	Polygon polyTest1, polyTest2, polyTest3, polyTest4;
 
 	@Before
-	public void setUp() throws HW3Exception {
+	public void setUp() {
 		p1 = new Point(-1, -1);
 		p2 = new Point(-1, 1);
 		p3 = new Point(1, 1);
@@ -74,11 +71,6 @@ public class TestPolygonPartA {
 		System.out.print(polyTest3);
 		assertEquals(polyTest3.toString(),
 				"The Polygon points are ( Point [x=-1.0, y=-1.0] Point [x=-1.0, y=1.0] Point [x=1.0, y=1.0] Point [x=1.0, y=-1.0] )");
-	}
-
-	@Test
-	public void testIsConvex() {
-		assertTrue(polyTest3.isConvex());
 	}
 
 	private boolean areEqual(double d1, double d2) {
