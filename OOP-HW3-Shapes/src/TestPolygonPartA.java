@@ -1,0 +1,87 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.xml.sax.HandlerBase;
+
+import exceptionsTypes.HW3Exception;
+
+/**
+ * @author Michal Hotovitz
+ *
+ */
+public class TestPolygonPartA {
+
+	private static double PRECISION = 1.0e-5;
+
+	private Point p1;
+	private Point p2;
+	private Point p3;
+	private Point p4;
+	private List<Point> vertices;
+	private String polygonStr;
+	Polygon polyTest1, polyTest2, polyTest3, polyTest4;
+
+	@Before
+	public void setUp() throws HW3Exception {
+		p1 = new Point(-1, -1);
+		p2 = new Point(-1, 1);
+		p3 = new Point(1, 1);
+		p4 = new Point(1, -1);
+		vertices = new ArrayList<Point>();
+		vertices.add(p1);
+		vertices.add(p2);
+		vertices.add(p3);
+		vertices.add(p4);
+		polygonStr = "-1,-1,-1,1,1,1,1,-1";
+		polyTest3 = new Polygon(vertices);
+		polyTest4 = new Polygon(polygonStr);
+	}
+
+	@Test
+	public void testGetVertices() {
+		Set<Point> poly3Vertices = new HashSet<Point>(polyTest3.getVertices());
+		Set<Point> poly4Vertices = new HashSet<Point>(polyTest4.getVertices());
+		assertTrue(poly3Vertices.equals(poly4Vertices));
+	}
+
+	@Test
+	public void testGetEdges() {
+		Set<LineSegment> poly3Edges = new HashSet<LineSegment>(polyTest3.getEdges());
+		Set<LineSegment> poly4Edges = new HashSet<LineSegment>(polyTest4.getEdges());
+		assertTrue(poly3Edges.equals(poly4Edges));
+	}
+
+	@Test
+	public void testGetNumberOfEdges() {
+		assertEquals(polyTest3.getNumberOfEdges(), 4);
+		assertEquals(polyTest4.getNumberOfEdges(), 4);
+	}
+
+	@Test
+	public void testGetPerimeter() {
+		assertTrue(areEqual(polyTest3.getPerimeter(), 8));
+	}
+
+	@Test
+	public void testToString() {
+		System.out.print(polyTest3);
+		assertEquals(polyTest3.toString(),
+				"The Polygon points are ( Point [x=-1.0, y=-1.0] Point [x=-1.0, y=1.0] Point [x=1.0, y=1.0] Point [x=1.0, y=-1.0] )");
+	}
+
+	@Test
+	public void testIsConvex() {
+		assertTrue(polyTest3.isConvex());
+	}
+
+	private boolean areEqual(double d1, double d2) {
+		return Math.abs(d1 - d2) < PRECISION;
+	}
+}
