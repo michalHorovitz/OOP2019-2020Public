@@ -93,17 +93,17 @@ public class TestPartPrismPyramidPartB {
 	@Test
 	public void testGetBase() {
 		assertEquals(prism1.getBaseString(),
-				"The Polygon points are ( Point [x=1.00, y=1.00] Point [x=3.00, y=1.00] Point [x=2.00, y=2.00] )");
+				"The Polygon points are ( Point [x=1.00, y=1.00] Point [x=2.00, y=2.00] Point [x=3.00, y=1.00] )");
 		assertEquals(prism2.getBaseString(),
-				"The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=3.00, y=1.00] Point [x=0.00, y=0.00] )");
+				"The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=0.00, y=0.00] Point [x=3.00, y=1.00] )");
 		assertEquals(prism3.getBaseString(),
-				"The Polygon points are ( Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] Point [x=-1.00, y=1.00] )");
+				"The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] )");
 		assertEquals(pyramid1.getBaseString(),
-				"The Polygon points are ( Point [x=1.00, y=1.00] Point [x=3.00, y=1.00] Point [x=2.00, y=2.00] )");
+				"The Polygon points are ( Point [x=1.00, y=1.00] Point [x=2.00, y=2.00] Point [x=3.00, y=1.00] )");
 		assertEquals(pyramid2.getBaseString(),
-				"The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=3.00, y=1.00] Point [x=0.00, y=0.00] )");
+				"The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=0.00, y=0.00] Point [x=3.00, y=1.00] )");
 		assertEquals(pyramid3.getBaseString(),
-				"The Polygon points are ( Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] Point [x=-1.00, y=1.00] )");
+				"The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] )");
 	}
 
 	@Test
@@ -119,17 +119,17 @@ public class TestPartPrismPyramidPartB {
 	@Test
 	public void testToString() {
 		assertEquals(prism1.toString(),
-				"Prism: Base shape=The Polygon points are ( Point [x=1.00, y=1.00] Point [x=3.00, y=1.00] Point [x=2.00, y=2.00] ). z-values for bases=0.00,1.00");
+				"Prism: Base shape=The Polygon points are ( Point [x=1.00, y=1.00] Point [x=2.00, y=2.00] Point [x=3.00, y=1.00] ). z-values for bases=0.00,1.00");
 		assertEquals(prism2.toString(),
-				"Prism: Base shape=The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=3.00, y=1.00] Point [x=0.00, y=0.00] ). z-values for bases=-1.00,1.00");
+				"Prism: Base shape=The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=0.00, y=0.00] Point [x=3.00, y=1.00] ). z-values for bases=-1.00,1.00");
 		assertEquals(prism3.toString(),
-				"Prism: Base shape=The Polygon points are ( Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] Point [x=-1.00, y=1.00] ). z-values for bases=-1.00,0.00");
+				"Prism: Base shape=The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] ). z-values for bases=-1.00,0.00");
 		assertEquals(pyramid1.toString(),
-				"Pyramid: Base shape=The Polygon points are ( Point [x=1.00, y=1.00] Point [x=3.00, y=1.00] Point [x=2.00, y=2.00] ). z-base shape =0.00. Apex=(1.00,1.00,1.00)");
+				"Pyramid: Base shape=The Polygon points are ( Point [x=1.00, y=1.00] Point [x=2.00, y=2.00] Point [x=3.00, y=1.00] ). z-base shape =0.00. Apex=(1.00,1.00,1.00)");
 		assertEquals(pyramid2.toString(),
-				"Pyramid: Base shape=The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=3.00, y=1.00] Point [x=0.00, y=0.00] ). z-base shape =-1.00. Apex=(1.00,1.00,0.00)");
+				"Pyramid: Base shape=The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=0.00, y=0.00] Point [x=3.00, y=1.00] ). z-base shape =-1.00. Apex=(1.00,1.00,0.00)");
 		assertEquals(pyramid3.toString(),
-				"Pyramid: Base shape=The Polygon points are ( Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] Point [x=-1.00, y=1.00] ). z-base shape =0.00. Apex=(1.00,1.00,-1.00)");
+				"Pyramid: Base shape=The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] ). z-base shape =0.00. Apex=(1.00,1.00,-1.00)");
 	System.out.print(String.format("%.2f",1.0));
 	}
 
