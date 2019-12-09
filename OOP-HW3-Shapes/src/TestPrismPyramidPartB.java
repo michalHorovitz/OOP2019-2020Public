@@ -9,7 +9,7 @@ import org.junit.Test;
  * @author Michal Hotovitz
  *
  */
-public class TestPartPrismPyramidPartB {
+public class TestPrismPyramidPartB {
 
 	private static double PRECISION = 1.0e-5;
 
