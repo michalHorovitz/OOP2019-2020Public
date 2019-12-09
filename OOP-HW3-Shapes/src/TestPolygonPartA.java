@@ -79,7 +79,7 @@ public class TestPolygonPartA {
 		System.out.print(polyTest3);
 		assertEquals(polyTest3.toString(),
 				"The Polygon points are ( Point [x=-1.00, y=-1.00] Point [x=-1.00, y=1.00] Point [x=1.00, y=1.00] Point [x=1.00, y=-1.00] )");
-	}}
+	}
 
 
 	private boolean areEqual(double d1, double d2) {
