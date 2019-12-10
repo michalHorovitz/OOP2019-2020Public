@@ -71,7 +71,6 @@ public class TestPolygonPartA {
 			if (!isContained) {
 				fail("Edges of polyTest3 should be equal to edges of polyTest4");
 			}
-
 		}
 	}
 
