@@ -10,7 +10,6 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-
 /**
  * @author Michal Hotovitz
  *
@@ -28,7 +27,7 @@ public class TestPolygonPartA {
 	Polygon polyTest1, polyTest2, polyTest3, polyTest4;
 
 	@Before
-	public void setUp()  {
+	public void setUp() {
 		p1 = new Point(-1, -1);
 		p2 = new Point(-1, 1);
 		p3 = new Point(1, 1);
@@ -40,11 +39,9 @@ public class TestPolygonPartA {
 		vertices.add(p4);
 		polygonStr = "-1,-1,-1,1,1,1,1,-1";
 		try {
-		polyTest3 = new Polygon(vertices);
-		polyTest4 = new Polygon(polygonStr);
-		}
-		catch(Exception e)
-		{
+			polyTest3 = new Polygon(vertices);
+			polyTest4 = new Polygon(polygonStr);
+		} catch (Exception e) {
 			fail("An exception in Polygon constructor");
 		}
 	}
@@ -60,7 +57,22 @@ public class TestPolygonPartA {
 	public void testGetEdges() {
 		Set<LineSegment> poly3Edges = new HashSet<LineSegment>(polyTest3.getEdges());
 		Set<LineSegment> poly4Edges = new HashSet<LineSegment>(polyTest4.getEdges());
-		assertTrue(poly3Edges.equals(poly4Edges));
+		assertEquals(poly3Edges.size(), poly4Edges.size());
+		boolean isContained = false;
+		for (LineSegment lineInPoly3 : poly3Edges) {
+			isContained = false;
+			for (LineSegment lineInPoly4 : poly4Edges) {
+				if (lineInPoly4.isEqual(lineInPoly3)) {
+					isContained = true;
+					break;
+				}
+			}
+
+			if (!isContained) {
+				fail("Edges of polyTest3 should be equal to edges of polyTest4");
+			}
+
+		}
 	}
 
 	@Test
@@ -80,7 +92,6 @@ public class TestPolygonPartA {
 		assertEquals(polyTest3.toString(),
 				"The Polygon points are ( Point [x=-1.00, y=-1.00] Point [x=-1.00, y=1.00] Point [x=1.00, y=1.00] Point [x=1.00, y=-1.00] )");
 	}
-
 
 	private boolean areEqual(double d1, double d2) {
 		return Math.abs(d1 - d2) < PRECISION;
