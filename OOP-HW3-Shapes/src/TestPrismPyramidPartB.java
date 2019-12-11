@@ -40,7 +40,6 @@ public class TestPrismPyramidPartB {
 		} catch (Exception e) {
 			fail("An exception in Polygon constructor");
 		}
-
 	}
 
 	@Test
@@ -52,13 +51,13 @@ public class TestPrismPyramidPartB {
 		PrismPyramid pyramid22 = null;
 		PrismPyramid pyramid32 = null;
 		try {
-			prism12 = new Prism(polygonStr1, 0, 1);
+			Polygon polygon1 = new Polygon(polygonStr1);
+			prism12 = new Prism(polygon1, 0, 1);
 			prism22 = new Prism(polyTest2, -1.0, 1);
 			prism32 = new Prism(polyTest3, 0, -1);
 			pyramid12 = new Pyramid(polyTest1, 0, 1, 1, 1);
 			pyramid22 = new Pyramid(polyTest2, -1.0, 1, 1, 0);
 			pyramid32 = new Pyramid(polyTest3, 0, 1, 1, -1);
-
 		} catch (Exception e) {
 			fail("An exception in constructor");
 		}
@@ -78,8 +77,9 @@ public class TestPrismPyramidPartB {
 		PrismPyramid prism12 = null;
 		PrismPyramid pyramid12 = null;
 		try {
-			prism12 = new Prism(polygonStr12, 0, 1);
-			pyramid12 = new Pyramid(polygonStr12, 0, 1, 1, 1);
+			Polygon polygon12 = new Polygon(polygonStr12);
+			prism12 = new Prism(polygon12, 0, 1);
+			pyramid12 = new Pyramid(polygon12, 0, 1, 1, 1);
 		} catch (Exception e) {
 			fail("An exception in Polygon constructor");
 		}
@@ -88,8 +88,7 @@ public class TestPrismPyramidPartB {
 		assertTrue(pyramid12.equals(pyramid1));
 
 	}
-	
-	
+
 	@Test
 	public void testGetBase() {
 		assertEquals(prism1.getBaseString(),
@@ -113,7 +112,7 @@ public class TestPrismPyramidPartB {
 		assertTrue(areEqual(prism3.getHeight(), 1));
 		assertTrue(areEqual(pyramid1.getHeight(), 1));
 		assertTrue(areEqual(pyramid2.getHeight(), 1));
-		assertTrue(areEqual(pyramid3.getHeight(), 1));	
+		assertTrue(areEqual(pyramid3.getHeight(), 1));
 	}
 
 	@Test
@@ -130,7 +129,7 @@ public class TestPrismPyramidPartB {
 				"Pyramid: Base shape=The Polygon points are ( Point [x=-2.00, y=0.00] Point [x=0.00, y=0.00] Point [x=3.00, y=1.00] ). z-base shape =-1.00. Apex=(1.00,1.00,0.00)");
 		assertEquals(pyramid3.toString(),
 				"Pyramid: Base shape=The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] ). z-base shape =0.00. Apex=(1.00,1.00,-1.00)");
-	System.out.print(String.format("%.2f",1.0));
+		System.out.print(String.format("%.2f", 1.0));
 	}
 
 	private boolean areEqual(double d1, double d2) {
