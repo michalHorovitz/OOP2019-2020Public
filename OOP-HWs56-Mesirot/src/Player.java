@@ -15,7 +15,7 @@ public class Player extends Thread {
 		super();
 		this.name = name;
 		this.game = game;
-		this.timeMS = timeActiveM * Game.TIME_SIMULATION_FACTOR;
+		this.timeMS = (int) timeActiveM * Game.TIME_SIMULATION_FACTOR;
 	}
 
 	public void run() {
