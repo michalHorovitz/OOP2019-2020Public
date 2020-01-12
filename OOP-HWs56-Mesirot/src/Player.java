@@ -11,7 +11,7 @@ public class Player extends Thread {
 	 * @param timeActiveM
 	 *            - the time (minutes) the player will play
 	 */
-	public Player(int name, Game game, int timeActiveM) {
+	public Player(int name, Game game, double timeActiveM) {
 		super();
 		this.name = name;
 		this.game = game;
