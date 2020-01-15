@@ -53,11 +53,11 @@ public class Game extends Thread {
 	 *            - the variance of the distribution
 	 * @return
 	 */
-	public static int gaussian(double periodMean, double periodVar) {
+	public static double gaussian(double periodMean, double periodVar) {
 		double period = 0;
 		while (period < 1)
 			period = periodMean + periodVar * random.nextGaussian();
-		return ((int) (period));
+		return period;
 	}
 
 }
